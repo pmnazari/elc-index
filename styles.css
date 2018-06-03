@@ -1,0 +1,139 @@
+body {
+	margin: 0;
+	
+	font-family: 'Merriweather', serif;
+}
+
+#background {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	background: url("assets/infinity-pool.jpg");
+	background-size: cover;
+	/* background-position: center; */
+	width: 100%;
+	z-index: -1;
+}
+
+#foreground {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+
+#navbar {
+	background-color: goldenrod;
+}
+
+#brand {
+	width: 358px;
+	height: 28.7px;
+	padding: 3px;
+	
+	position: relative;
+	top: 5px;
+	left: 3px;
+	
+	background-image: url('./assets/ELC_Logo2.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	
+	cursor: pointer;
+}
+
+#content {
+	background-color: rgba(30, 30, 30, 0.7);
+	
+	position: relative;
+	top: 30px;
+	width: 70%;
+	min-width: 800px;
+	margin: auto;
+	padding-bottom: 30px;
+}
+
+#header {
+	height: 110px;
+	
+	background-color: rgba(0, 0, 0, 0.6);
+	
+	text-align: center;
+	color: goldenrod;
+	font-weight: bold;
+	padding-top: 40px;
+	font-size: 40px;
+}
+
+#header * {
+	margin: auto;
+	border-bottom: 2px goldenrod solid;
+	padding-bottom: 10px;
+	width: 85%;
+}
+
+.table {
+	margin: 30px;
+	
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+}
+
+.game {
+	margin: 20px;
+	width: 500px;
+	height: 150px;
+
+	background-color: rgba(0, 0, 0, 0.8);	
+	border: 10px rgba(30, 30, 30, 0.5) solid;
+	
+	cursor: pointer;
+}
+
+.game:hover {
+	box-shadow: 0 0 2px 2px white;
+}
+
+.game-image-container {
+	width: 120px;
+	height: 120px;
+	margin: 15px;
+	margin-left: 50px;
+	margin-right: 0;
+	float: left;
+		
+	position: relative;
+}
+
+.game-image-container * {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.game-image-glow {
+	width: 1px;
+	height: 1px;
+	margin: 60px;
+	
+	box-shadow: 0 0 50px 45px goldenrod;
+	border-radius: 100%;
+}
+
+.game-image {
+	width: 100px;
+	height: 100px;
+	margin: 10px;
+	
+	background-size: contain;
+}
+
+.game-title {
+	text-align: center;
+	margin-top: 58px;
+	font-size: 28px;
+	
+	font-weight: bold;
+	color: goldenrod;
+}
