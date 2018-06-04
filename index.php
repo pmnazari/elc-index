@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>USC Marshall Experiential Learning Center</title>
+		<title>USC Marshall - Experiential Learning Center</title>
 		<link rel="icon" href="assets/favicon.ico">
 		<link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="styles.css">
@@ -13,19 +13,29 @@
 				});
 				
 				// Game images grow on hover!
-				$(".game").hover(function() {
-					$(this).find(".game-image").animate({
-						width: 120,
-						height: 120,
-						margin: 0
-					}, 200);
-				}, function() {
-					$(this).find(".game-image").animate({
-						width: 100,
-						height: 100,
-						margin: 10
-					}, 200);
+				$(".game").each(function() {
+					let image = $(this).find('.game-image');
+					let size = image.is(".small-image") ? 110 : 100;
+					
+					image.css("width", size);
+					image.css("height", size);
+					image.css("margin", (120 - size) / 2);
+					
+					$(this).hover(function() {
+						image.animate({
+							width: size + 20,
+							height: size + 20,
+							margin: ((120 - size) / 2) - 10
+						}, 200);
+					}, function() {
+						image.animate({
+							width: size,
+							height: size,
+							margin: (120 - size) / 2
+						}, 200);
+					});
 				});
+				
 			});
 		</script>
 	</head>
@@ -37,7 +47,7 @@
 			</div>
 			<div id="content">
 				<div id="header">
-					<p>Simulations and Games</p>
+					<p>Exercises</p>
 				</div>
 				<div class="table">
 					<?php
@@ -51,12 +61,17 @@
 							else
 								$game_url = $game['id'];
 							
-							$image_src = './assets/games/' . $game['id'] . '.png';
+							if (array_key_exists('image', $game))
+								$image_src = $game['image'];
+							else
+								$image_src = './assets/games/' . $game['id'] . '.png';
+							
+							$small_image = array_key_exists('smallImage', $game) && $game['smallImage'];
 							
 							echo '<div class="game" onclick="window.location = \'' . $game_url . '\';">';
 							echo '	<div class="game-image-container">';
 							echo '		<div class="game-image-glow"></div>';
-							echo '		<div class="game-image" style="background-image: url(\'' . $image_src . '\');"></div>';
+							echo '		<div class="game-image ' . ($small_image ? "small-image" : '') . '" style="background-image: url(\'' . $image_src . '\');"></div>';
 							echo '	</div>';
 							echo '	<p class="game-title">' . $game['title'] . '</p>';
 							echo '</div>';
@@ -64,7 +79,12 @@
 					?>
 				</div>
 			</div>
-
+			
+			<div id="footer">
+				<div id="footer-background"></div>
+				<p>&#169; <?php echo date("Y"); ?> University of Southern California Marshall School of Business. All rights reserved.</p>
+				<p>Homepage by Phillip Nazarian and Ahsan Zaman</p>
+			</div>
 		</div>
 	</body>
 </html>

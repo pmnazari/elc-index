@@ -2,5 +2,21 @@
 	{
 		"id": "treasure-hunt",
 		"title": "Treasure Hunt"
+	},
+	{
+		"id": "galactic-enterprise",
+		"title": "Galactic Enterprise",
+		"smallImage": true
+	},
+	{
+		"id": "madagascar",
+		"title": "Madagascar",
+		"location": "http://104.236.176.214/"
+	},
+	{
+		"id": "resolve",
+		"title": "Resolve",
+		"image": "assets/games/_unknown.png",
+		"location": "http://combatconflict.marshall.usc.edu/"
 	}
 ]
